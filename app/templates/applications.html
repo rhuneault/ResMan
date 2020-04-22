@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="jumbotron text-center">
+    <h1>Applications</h1>
+</div>
+<table class="table">
+    <tr>
+        <th>Company</th>
+        <th>Position</th>
+        <th>Application Status</th>
+    </tr>
+    {% for application in applications %}
+    <tr>
+        <td>{{application.company}}</td>
+        <td>{{application.position}}</td>
+        <td>{{application.status}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
