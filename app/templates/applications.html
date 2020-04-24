@@ -4,20 +4,29 @@
 <div class="jumbotron text-center">
     <h1>Applications</h1>
 </div>
-<table class="table">
-    <tr>
-        <th>Company</th>
-        <th>Position</th>
-        <th>Application Status</th>
-    </tr>
+<table class="table table-hover" style="border-collapse:collapse;">
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Application Status</th>
+        </tr>
+    </thead>
     {% for application in applications %}
-    <tr>
+    <tr data-toggle="collapse" data-target="#demo{{loop.index}}" class="accordion-toggle">
         <td>{{application.company}}</td>
         <td>{{application.position}}</td>
         <td>
             <span class={% if application.status=="Applied" %}"label label-primary"{% else %}"label label-default"{% endif %}>
                 {{application.status}}
             </span>
+        </td>
+    </tr>
+    <tr >
+        <td colspan="3" style="padding: 0">
+            <div class="well accordian-body collapse" id="demo{{loop.index}}">
+                Demo{{loop.index}}
+            </div>
         </td>
     </tr>
     {% endfor %}

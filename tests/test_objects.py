@@ -1,6 +1,6 @@
 import unittest
 
-from app.objs.objects import Application, ResumeBase
+from app.objs.objects import Application, ResumeBase, HTMLExporter
 
 
 # coverage run --source=app -m nose2
@@ -17,11 +17,17 @@ class TestApplication(unittest.TestCase):
         assert a.position == 'Senior Confabulator'
         assert a.status == 'Not applied'
 
+    def test_application_advanced_properties(self):
+        """
+        """
+        a = Application('TD Canada Trust', 'Senior Confabulator', 'Not applied')
+        a.set_location()
+
+
 
 class TestResume(unittest.TestCase):
     """
     """
-
     def test_resume_name(self):
         """Test the default format works with no middle name.
         """
@@ -56,6 +62,18 @@ class TestResume(unittest.TestCase):
     def test_resume_add_personal_info(self):
         """The that we can add and retrieve contact and location info.
         """
+
+
+class TestExporter(unittest.TestCase):
+    """
+    """
+    def test_html_export(self):
+        """
+        """
+        r = ResumeBase('John', 'Smith', middle_name='Quentin')
+        ex = HTMLExporter()
+        print(ex.export(r))
+
 
 
 if __name__ == '__main__':

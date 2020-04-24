@@ -14,6 +14,10 @@ class Application(object):
         self._position = position_title
         self._status = status
 
+    def set_location(self):
+        """
+        """
+
     @property
     def company(self):
         """The name of the company which is offering the job.
@@ -71,3 +75,33 @@ class ResumeBase(object):
                 return self._first.title() + ' ' + self._last.title()
 
 
+class BaseExporter(object):
+    """
+    """
+    def export(self, resume):
+        """
+        """
+        raise NotImplementedError('"export" must be implemented in a sub class.')
+
+
+class HTMLExporter(BaseExporter):
+    """
+    """
+    def export(self, resume):
+        """
+        """
+        output_html = f"""<html>
+	<head>
+		<style>
+div.ApplicantName {{
+	font-family: verdana;
+	font-size: 300%;
+}}			
+		</style>
+	</head>
+	<body>
+		<div class='ApplicantName'>{resume.name()}</div>
+		<hr />
+	</body>
+</html>"""
+        return output_html
