@@ -14,7 +14,11 @@
     <tr>
         <td>{{application.company}}</td>
         <td>{{application.position}}</td>
-        <td>{{application.status}}</td>
+        <td>
+            <span class={% if application.status=="Applied" %}"label label-primary"{% else %}"label label-default"{% endif %}>
+                {{application.status}}
+            </span>
+        </td>
     </tr>
     {% endfor %}
 </table>

@@ -9,7 +9,6 @@ from app.objs.objects import Application
 class TestApplication(unittest.TestCase):
     """
     """
-
     def test_application_properties(self):
         """
         """
@@ -18,9 +17,14 @@ class TestApplication(unittest.TestCase):
         assert a.position == 'Senior Confabulator'
         assert a.status == 'Not applied'
 
-    def test_application_invalid_status(self):
+
+class TestResume(unittest.TestCase):
+    """
+    """
+    def test_resume_properties(self):
         """
         """
+
 
 
 if __name__ == '__main__':
