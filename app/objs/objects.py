@@ -36,27 +36,20 @@ class Application(object):
 class ResumeBase(object):
     """A job resume.
     """
-    def __init__(self):
+    def __init__(self, first_name, last_name, middle_name=None):
         """
+        :param first_name: The first name of the job applicant
+        :param last_name: The last name of the job applicant
+        :param middle_name: (Optional) The middle name of the job applicant
         """
-        self._first = None
-        self._middle = None
-        self._last = None
-
-    def add_name(self, first, last, middle=None):
-        """Add the job applicant's name to the resume.
-
-        :param first: The first name of the job applicant
-        :param last: The last name of the job applicant
-        :return: None
-        """
-        self._first = first
-        self._last = last
-        self._middle = middle
+        self._first = first_name
+        self._middle = middle_name
+        self._last = last_name
 
     def name(self, middle=None):
         """Return the name in the requested format.
 
+        :param middle: How to format the middle name
         :return: The first and last name of the job applicant
         """
         if self._first is None or self._last is None:
